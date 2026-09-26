@@ -1,59 +1,106 @@
-# test_errors.py
-# This file intentionally contains errors for testing.
+# a.py
+# This file intentionally contains bugs for AI Coding Harness testing.
 
 def calculate_total(numbers):
+    """Return the sum of all numbers."""
     total = 0
 
-    for num in numbers:
-        total += num
+    for number in numbers:
+        total += number
 
     return total
 
 
 def find_average(numbers):
-    # ERROR 1: wrong variable name
-    return calculate_total(numbers) / len(number)
+    """Return the average of a list of numbers."""
+    if not numbers:
+        return 0
+
+    total = calculate_total(numbers)
+
+    # Intentional bug:
+    # wrong variable name
+    return total / len(number)
 
 
 def get_user_name(user):
-    # ERROR 2: incorrect dictionary key
+    """Return the user's name from a dictionary."""
+    # Intentional bug:
+    # wrong dictionary key
     return user["username"]
 
 
 def multiply(a, b):
-    # ERROR 3: undefined variable
+    """Return a multiplied by b."""
+    # Intentional bug:
+    # undefined variable
     return a * c
 
 
 def divide(a, b):
-    # ERROR 4: division by zero
+    """Return a divided by b."""
+    # Intentional bug:
+    # ignores b and always divides by zero
     return a / 0
 
 
 def check_age(age):
-    # ERROR 5: incorrect comparison
-    if age > "18":
-        return "Adult"
-    return "Minor"
+    """Return True if the person is 18 or older."""
+    # Intentional bug:
+    # incorrect comparison
+    return age > 21
 
 
-def main():
-    numbers = [10, 20, 30, 40]
+def find_max(numbers):
+    """Return the largest number in a list."""
+    if not numbers:
+        return None
 
-    print("Total:", calculate_total(numbers))
-    print("Average:", find_average(numbers))
+    maximum = numbers[0]
 
-    user = {
-        "name": "Ajay",
-        "age": 21
-    }
+    for number in numbers:
+        # Intentional bug:
+        # comparison is reversed
+        if number < maximum:
+            maximum = number
 
-    print("User:", get_user_name(user))
+    return maximum
 
-    print("Multiplication:", multiply(5, 10))
-    print("Division:", divide(10, 2))
-    print("Age:", check_age(21))
+
+def count_even_numbers(numbers):
+    """Return the number of even values."""
+    count = 0
+
+    for number in numbers:
+        # Intentional bug:
+        # checks odd instead of even
+        if number % 2 != 0:
+            count += 1
+
+    return count
+
+
+def reverse_text(text):
+    """Return the reversed string."""
+    # Intentional bug:
+    return text
+
+
+def is_valid_email(email):
+    """Return True if the email looks valid."""
+    # Intentional bug:
+    # incorrect validation
+    return "@" not in email
 
 
 if __name__ == "__main__":
-    main()
+    numbers = [10, 20, 30]
+
+    print("Total:", calculate_total(numbers))
+    print("Average:", find_average(numbers))
+    print("Multiply:", multiply(5, 4))
+    print("Divide:", divide(10, 2))
+    print("Max:", find_max(numbers))
+    print("Even count:", count_even_numbers(numbers))
+    print("Reverse:", reverse_text("hello"))
+    print("Valid email:", is_valid_email("test@example.com"))
