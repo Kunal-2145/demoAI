@@ -1,3 +1,6 @@
+# test_errors.py
+# This file intentionally contains errors for testing.
+
 def calculate_total(numbers):
     total = 0
 
@@ -8,22 +11,27 @@ def calculate_total(numbers):
 
 
 def find_average(numbers):
+    # ERROR 1: wrong variable name
     return calculate_total(numbers) / len(number)
 
 
 def get_user_name(user):
+    # ERROR 2: incorrect dictionary key
     return user["username"]
 
 
 def multiply(a, b):
+    # ERROR 3: undefined variable
     return a * c
 
 
 def divide(a, b):
+    # ERROR 4: division by zero
     return a / 0
 
 
 def check_age(age):
+    # ERROR 5: incorrect comparison
     if age > "18":
         return "Adult"
     return "Minor"
